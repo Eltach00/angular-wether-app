@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --blue-1: #3C429E;
+  --blue-2: #4C52AD;
+  --yellow-1: #FAC742;
+  --grey-1: #EDEDED;
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--blue-2);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
