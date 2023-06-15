@@ -12,10 +12,14 @@ export class WetherService {
   constructor(private http: HttpClient) {}
 
   getWether(lon: string, lat: string): Observable<IWeather> {
-    return this.http
-      .get<IWeather>(environment.wetherUrl + `${lat}/${lon}`, {
-        headers: environment.headers,
-      })
-      .pipe(debounce(() => timer(3000)));
+    return this.http.get<IWeather>(environment.wetherUrl + `${lat}/${lon}`, {
+      headers: environment.headers,
+    });
+  }
+
+  getCityWeather(city: string): Observable<IWeather> {
+    return this.http.get<IWeather>(environment.cityUrl + `${city}`, {
+      headers: environment.headers,
+    });
   }
 }

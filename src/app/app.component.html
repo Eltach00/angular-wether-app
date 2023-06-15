@@ -2,6 +2,10 @@
   Loading...
 </div>
 
+<form class="searhForm" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <input formControlName="inputCity" type="text" placeholder="Search City..." />
+</form>
+
 <div *ngIf="load" class="container">
   <div class="upper">
     <img *ngIf="true;else templ" src="../assets/img/night.jpg" alt="">

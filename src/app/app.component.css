@@ -1,9 +1,9 @@
 .container {
   position: relative;
-  top: 100px;
+  top: 70px;
   margin: 0 auto;
-  height: 80vh;
-  width: 40%;
+  height: 70vh;
+  width: 360px;
   box-shadow: 10px 10px 10px var(--blue-1);
   border-radius: 20px;
   display: flex;
@@ -43,7 +43,7 @@
 }
 
 .location {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -66,6 +66,7 @@
   background-color: #656bbc;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  color: white;
 }
 
 .more-info h3 {
@@ -79,13 +80,13 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .temp-block div,
 .other-block div {
   display: flex;
-  width: 100%;
-  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -101,4 +102,25 @@
 
 .under-contaienr span {
   text-align: center;
+}
+
+.searhForm {
+  position: relative;
+  top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.searhForm input {
+  background-color: var(--blue-1);
+  color: white;
+  border: var(--blue-1) 1px solid;
+  border-radius: 40px;
+  padding: 10px 30px;
+  font-size: 1.1rem;
+
+}
+
+.searhForm input::placeholder {
+  color: white;
 }
