@@ -2,9 +2,7 @@
   Loading...
 </div>
 
-<form class="searhForm" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-  <input formControlName="inputCity" type="text" placeholder="Search City..." />
-</form>
+<app-search-form (searchCity)="onChanged($event)"></app-search-form>
 
 <div *ngIf="load" class="container">
   <div class="upper">

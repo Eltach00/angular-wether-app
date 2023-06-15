@@ -11,7 +11,6 @@ import { debounceTime } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  searchForm: FormGroup;
   load = false;
   title = 'angular-wether-app';
   weatherData: IWeather;
@@ -29,33 +28,16 @@ export class AppComponent implements OnInit {
       hour: '2-digit',
       minute: 'numeric',
     });
-    this.makeForm();
   }
-  makeForm() {
-    this.searchForm = new FormGroup({
-      inputCity: new FormControl('', Validators.required),
+
+  onChanged(city: string) {
+    this.wetherService.getCityWeather(city).subscribe({
+      next: (data: IWeather) => {
+        this.writeData(data);
+      },
     });
-
-    this.searchForm.controls['inputCity'].valueChanges
-      .pipe(debounceTime(1000))
-      .subscribe((resp: string) => {
-        if (!resp) {
-          return;
-        } else {
-          const city = resp.trim().toLocaleLowerCase();
-          console.log(city);
-          this.wetherService.getCityWeather(city).subscribe({
-            next: (data: IWeather) => {
-              this.writeData(data);
-            },
-          });
-        }
-      });
   }
 
-  onSubmit() {
-    console.log(this.searchForm);
-  }
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
