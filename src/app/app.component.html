@@ -1,10 +1,17 @@
-<div class="container">
+<div class="loading" *ngIf="!load">
+  Loading...
+</div>
+
+<div *ngIf="load" class="container">
   <div class="upper">
-    <img src="../assets/img/night.jpg" alt="">
-    <!-- <img src="../assets/img/sunny.jpg" alt=""> -->
+    <img *ngIf="true;else templ" src="../assets/img/night.jpg" alt="">
+    <ng-template #templ>
+      <img src="../assets/img/sunny.png" alt="">
+    </ng-template>
     <div class="info-block">
-      <div class="location">Baku</div>
-      <div class="temp">{{ 20.21 | number: '1.0-0'}}°C</div>
+      <div class="location"> {{time}} </div>
+      <div class="location"> {{city}} </div>
+      <div class="temp">{{ cuurentTemp | number: '1.0-0'}}°C</div>
     </div>
   </div>
   <div class="more-info">
@@ -15,24 +22,24 @@
           <p><img src="../assets/img/cold.png" alt=""> <span>
               min
             </span> </p>
-          <p>19°C</p>
+          <p>{{minTemp | number: '1.0-0'}}°C</p>
         </div>
         <div>
           <p>
             <img src="../assets/img/hot.avif" alt="">
             max
           </p>
-          <p>20°C</p>
+          <p>{{maxTemp | number: '1.0-0'}}°C</p>
         </div>
       </div>
       <div class="other-block">
         <div>
           <p><img src="../assets/img/humidity.png" alt=""> min</p>
-          <p>85%</p>
+          <p>{{humidity}}%</p>
         </div>
         <div>
           <p><img src="../assets/img/wind.png" alt="">Wind</p>
-          <p>11.83 <span> km/h</span>
+          <p>{{windSpeed | number: '1.0-0'}} <span> km/h</span>
           </p>
         </div>
       </div>

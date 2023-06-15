@@ -10,6 +10,13 @@
   flex-direction: column;
 }
 
+.loading {
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
 .upper {
   position: relative;
   overflow: hidden;
